@@ -17,6 +17,7 @@
 		FB6B16C529C35D150062BF37 /* LoginScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B16C429C35D150062BF37 /* LoginScreenPresenter.swift */; };
 		FB6B16C729C36B410062BF37 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B16C629C36B410062BF37 /* MainNavigationController.swift */; };
 		FB91C99229C8B6160079D5ED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB91C99129C8B6160079D5ED /* LoginViewController.swift */; };
+		FB91C99429C8C7400079D5ED /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB91C99329C8C7400079D5ED /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FB6B16C429C35D150062BF37 /* LoginScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenPresenter.swift; sourceTree = "<group>"; };
 		FB6B16C629C36B410062BF37 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		FB91C99129C8B6160079D5ED /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FB91C99329C8C7400079D5ED /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				FB6B16B029C356F50062BF37 /* SingInViewController.swift */,
 				FB91C99129C8B6160079D5ED /* LoginViewController.swift */,
 				FB6B16C629C36B410062BF37 /* MainNavigationController.swift */,
+				FB91C99329C8C7400079D5ED /* MainViewController.swift */,
 				FB6B16B829C356FC0062BF37 /* Assets.xcassets */,
 				FB6B16BA29C356FC0062BF37 /* LaunchScreen.storyboard */,
 				FB6B16BD29C356FC0062BF37 /* Info.plist */,
@@ -229,6 +232,7 @@
 				FB6B16C529C35D150062BF37 /* LoginScreenPresenter.swift in Sources */,
 				FB6B16AF29C356F50062BF37 /* SceneDelegate.swift in Sources */,
 				FB6B16B729C356F50062BF37 /* TestMarket.xcdatamodeld in Sources */,
+				FB91C99429C8C7400079D5ED /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

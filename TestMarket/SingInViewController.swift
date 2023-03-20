@@ -9,7 +9,7 @@ import SnapKit
 import UIKit
 
 class SingInViewController: UIViewController {
-    
+
     private var mainLabel: UILabel?
     private var firstNameTextField: UITextField?
     private var lastNameTextField: UITextField?
@@ -19,6 +19,7 @@ class SingInViewController: UIViewController {
     private var logInButton: UIButton?
     private var googleButton: UIButton?
     private var appleButton: UIButton?
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +105,9 @@ class SingInViewController: UIViewController {
         self.appleButton?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         self.appleButton?.setTitleColor(.black, for: .normal)
         self.appleButton?.configuration = signButtonConfig
+        
+        
+        
         
             
     }
@@ -194,9 +198,10 @@ class SingInViewController: UIViewController {
     }
     
     @objc private func LogInButtonPressed() {
-        self.present(LoginViewController(), animated: true)
+        let loginVC = MainViewController()
+        loginVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(loginVC, animated: true)
         print("log in")
     }
-
 }
 

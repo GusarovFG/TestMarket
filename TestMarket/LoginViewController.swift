@@ -9,16 +9,25 @@ import UIKit
 
 class LoginViewController: UINavigationController {
     
+    private var isSecure = true
+    
     private var mainLabel: UILabel?
     private var firstNameTextField: UITextField?
     private var passwordTextField: UITextField?
     private var loginButton: UIButton?
+    private var secureButton: UIButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
         self.setupUI()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     override func viewWillLayoutSubviews() {
@@ -33,6 +42,7 @@ class LoginViewController: UINavigationController {
         self.firstNameTextField?.layer.cornerRadius = 14
         self.passwordTextField?.layer.cornerRadius = 14
         self.loginButton?.layer.cornerRadius = 14
+        
     }
     
     private func setupUI() {
@@ -54,12 +64,27 @@ class LoginViewController: UINavigationController {
         self.passwordTextField?.backgroundColor = #colorLiteral(red: 0.9098039216, green: 0.9098039216, blue: 0.9098039216, alpha: 1)
         self.passwordTextField?.tintColor = #colorLiteral(red: 0.4823529412, green: 0.4823529412, blue: 0.4823529412, alpha: 1)
         self.passwordTextField?.textAlignment = .center
+        self.passwordTextField?.isSecureTextEntry = true
         
         self.loginButton = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         self.loginButton?.backgroundColor = #colorLiteral(red: 0.3058823529, green: 0.3333333333, blue: 0.8431372549, alpha: 1)
         self.loginButton?.setTitle("Sign In", for: .normal)
         self.loginButton?.tintColor = .white
         self.loginButton?.addTarget(self, action: #selector(loginButtonButtonPressed), for: .touchUpInside)
+        
+        self.secureButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
+        self.secureButton?.setImage(UIImage(named: "secure"), for: .normal)
+        self.secureButton?.addTarget(self, action: #selector(securePasswordTextField), for: .touchUpInside)
+        var config = UIButton.Configuration.filled()
+        config.imagePadding = -10
+        config.baseBackgroundColor = UIColor(white: 1, alpha: 0)
+        
+        self.secureButton?.configuration = config
+        
+        self.passwordTextField?.rightView = secureButton
+        self.passwordTextField?.rightViewMode = .always
+        
+        
     }
    
     private func setupConstraints() {
@@ -97,9 +122,23 @@ class LoginViewController: UINavigationController {
             make.right.equalToSuperview().inset(43)
             make.height.equalTo(46)
         })
+        
+        
+       
     }
     
     @objc private func loginButtonButtonPressed() {
         print("login")
+    }
+    
+    @objc private func securePasswordTextField() {
+        self.isSecure.toggle()
+        
+        switch isSecure {
+        case true:
+            self.passwordTextField?.isSecureTextEntry = true
+        case false:
+            self.passwordTextField?.isSecureTextEntry = false
+        }
     }
 }
