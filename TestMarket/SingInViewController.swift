@@ -87,6 +87,12 @@ class SingInViewController: UIViewController {
         self.logInButton?.titleLabel?.font = UIFont.systemFont(ofSize: 11)
         self.logInButton?.addTarget(self, action: #selector(LogInButtonPressed), for: .touchUpInside)
         
+        self.googleButton = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        self.googleButton?.setImage(UIImage(named: "google"), for: .normal)
+        self.googleButton?.setTitle("Sign in with Google", for: .normal)
+        self.googleButton?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        self.googleButton?.setTitleColor(.black, for: .normal)
+        
             
     }
     
@@ -152,6 +158,14 @@ class SingInViewController: UIViewController {
             make.top.equalTo(self.signInButton?.snp.bottom ?? 0).offset(17.43)
             make.height.equalTo(9.57)
             
+        })
+        
+        self.view.addSubview(self.googleButton ?? UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
+        
+        self.googleButton?.snp.makeConstraints({ make in
+            make.left.equalToSuperview().offset(100)
+            make.top.equalTo(self.alredyLabel?.snp.bottom ?? 0).offset(100)
+            make.height.equalTo(25)
         })
     }
 
