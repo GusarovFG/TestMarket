@@ -10,15 +10,15 @@ import UIKit
 
 class SingInViewController: UIViewController {
     
-    var mainLabel: UILabel?
-    var firstNameTextField: UITextField?
-    var lastNameTextField: UITextField?
-    var emailTextField: UITextField?
-    var signInButton: UIButton?
-    var alredyLabel: UILabel?
-    var logInButton: UIButton?
-    var googleButton: UIButton?
-    var appleButton: UIButton?
+    private var mainLabel: UILabel?
+    private var firstNameTextField: UITextField?
+    private var lastNameTextField: UITextField?
+    private var emailTextField: UITextField?
+    private var signInButton: UIButton?
+    private var alredyLabel: UILabel?
+    private var logInButton: UIButton?
+    private var googleButton: UIButton?
+    private var appleButton: UIButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +93,18 @@ class SingInViewController: UIViewController {
         self.googleButton?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         self.googleButton?.setTitleColor(.black, for: .normal)
         
+        var signButtonConfig = UIButton.Configuration.filled()
+        signButtonConfig.imagePadding = 15
+        signButtonConfig.baseBackgroundColor = self.view.backgroundColor
+        self.googleButton?.configuration = signButtonConfig
+        
+        self.appleButton = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        self.appleButton?.setImage(UIImage(named: "apple"), for: .normal)
+        self.appleButton?.setTitle("Sign in with Apple", for: .normal)
+        self.appleButton?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        self.appleButton?.setTitleColor(.black, for: .normal)
+        self.appleButton?.configuration = signButtonConfig
+        
             
     }
     
@@ -163,8 +175,16 @@ class SingInViewController: UIViewController {
         self.view.addSubview(self.googleButton ?? UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
         
         self.googleButton?.snp.makeConstraints({ make in
-            make.left.equalToSuperview().offset(100)
+            make.left.equalToSuperview().offset(80)
             make.top.equalTo(self.alredyLabel?.snp.bottom ?? 0).offset(100)
+            make.height.equalTo(25)
+        })
+        
+        self.view.addSubview(self.appleButton ?? UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0)))
+        
+        self.appleButton?.snp.makeConstraints({ make in
+            make.left.equalToSuperview().offset(80)
+            make.top.equalTo(self.googleButton?.snp.bottom ?? 0).offset(50)
             make.height.equalTo(25)
         })
     }
@@ -174,6 +194,7 @@ class SingInViewController: UIViewController {
     }
     
     @objc private func LogInButtonPressed() {
+        self.present(LoginViewController(), animated: true)
         print("log in")
     }
 
